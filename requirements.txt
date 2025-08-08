@@ -1,0 +1,7 @@
+psutil==7.0.0
+pypiwin32==223
+pywin32==311
+setuptools==80.9.0
+win11toast==0.35
+winotify==1.1.0
+winsdk==1.0.0b10
