@@ -1,0 +1,604 @@
+[
+  {
+    "domain": "www.google-analytics.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "ssl.google-analytics.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "analytics.google.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "g.doubleclick.net",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "pagead2.googlesyndication.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "adservice.google.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "connect.facebook.net",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "graph.facebook.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "adobedc.demdex.net",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "demdex.net",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "dpm.demdex.net",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "bam.nr-data.net",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "js-agent.newrelic.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "nr-data.net",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "static.hotjar.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "script.hotjar.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "cdn.segment.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "api.segment.io",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "api.mixpanel.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "decide.mixpanel.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "api.amplitude.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "sb.scorecardresearch.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "secure.quantserve.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "pixel.quantserve.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "trc.taboola.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "cdn.taboola.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "widgets.outbrain.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "edge.outbrain.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "bidder.criteo.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "match.adsrvr.org",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "idsync.rlcdn.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "sync.crwdcntrl.net",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "pixel.rubiconproject.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "z.moatads.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "js.adsrvr.org",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "cdn.mxpnl.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "bat.bing.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "snap.licdn.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "scribe.twitter.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "analytics.tiktok.com",
+    "ip_address": "",
+    "category": "Browser_Tracker",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "api.datadoghq.com",
+    "ip_address": "",
+    "category": "App_Telemetry",
+    "severity": "Medium",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "http-intake.logs.datadoghq.com",
+    "ip_address": "",
+    "category": "App_Telemetry",
+    "severity": "Medium",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "o255582.ingest.sentry.io",
+    "ip_address": "",
+    "category": "App_Telemetry",
+    "severity": "Medium",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "sentry.io",
+    "ip_address": "",
+    "category": "App_Telemetry",
+    "severity": "Medium",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "notify.bugsnag.com",
+    "ip_address": "",
+    "category": "App_Telemetry",
+    "severity": "Medium",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "sessions.bugsnag.com",
+    "ip_address": "",
+    "category": "App_Telemetry",
+    "severity": "Medium",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "api.segment.io",
+    "ip_address": "",
+    "category": "App_Telemetry",
+    "severity": "Medium",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "cdn.segment.com",
+    "ip_address": "",
+    "category": "App_Telemetry",
+    "severity": "Medium",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "app-measurement.com",
+    "ip_address": "",
+    "category": "App_Telemetry",
+    "severity": "Medium",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "app-measurement.net",
+    "ip_address": "",
+    "category": "App_Telemetry",
+    "severity": "Medium",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "api.amplitude.com",
+    "ip_address": "",
+    "category": "App_Telemetry",
+    "severity": "Medium",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "region1.app-measurement.com",
+    "ip_address": "",
+    "category": "App_Telemetry",
+    "severity": "Medium",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "events.split.io",
+    "ip_address": "",
+    "category": "App_Telemetry",
+    "severity": "Medium",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "sdk.split.io",
+    "ip_address": "",
+    "category": "App_Telemetry",
+    "severity": "Medium",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "e.crashlytics.com",
+    "ip_address": "",
+    "category": "App_Telemetry",
+    "severity": "Medium",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "reports.crashlytics.com",
+    "ip_address": "",
+    "category": "App_Telemetry",
+    "severity": "Medium",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "mobile.events.data.microsoft.com",
+    "ip_address": "",
+    "category": "OS_Telemetry",
+    "severity": "High",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "v10.events.data.microsoft.com",
+    "ip_address": "",
+    "category": "OS_Telemetry",
+    "severity": "High",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "pipe.aria.microsoft.com",
+    "ip_address": "",
+    "category": "OS_Telemetry",
+    "severity": "High",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "settings-win.data.microsoft.com",
+    "ip_address": "",
+    "category": "OS_Telemetry",
+    "severity": "High",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "watson.telemetry.microsoft.com",
+    "ip_address": "",
+    "category": "OS_Telemetry",
+    "severity": "High",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "gsp-ssl.ls.apple.com",
+    "ip_address": "",
+    "category": "OS_Telemetry",
+    "severity": "High",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "xp.apple.com",
+    "ip_address": "",
+    "category": "OS_Telemetry",
+    "severity": "High",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "gs-loc.apple.com",
+    "ip_address": "",
+    "category": "OS_Telemetry",
+    "severity": "High",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "update.microsoft.com",
+    "ip_address": "",
+    "category": "Update_Services",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "download.windowsupdate.com",
+    "ip_address": "",
+    "category": "Update_Services",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "windowsupdate.com",
+    "ip_address": "",
+    "category": "Update_Services",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "sls.update.microsoft.com",
+    "ip_address": "",
+    "category": "Update_Services",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "fe3.delivery.mp.microsoft.com",
+    "ip_address": "",
+    "category": "Update_Services",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "update.googleapis.com",
+    "ip_address": "",
+    "category": "Update_Services",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "clients2.google.com",
+    "ip_address": "",
+    "category": "Update_Services",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "edge.microsoft.com",
+    "ip_address": "",
+    "category": "Update_Services",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "aus5.mozilla.org",
+    "ip_address": "",
+    "category": "Update_Services",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "ccmdls.adobe.com",
+    "ip_address": "",
+    "category": "Update_Services",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "na1r.services.adobe.com",
+    "ip_address": "",
+    "category": "Update_Services",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "",
+    "ip_address": "169.254.169.254",
+    "category": "Cloud_Metadata",
+    "severity": "High",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "metadata.google.internal",
+    "ip_address": "",
+    "category": "Cloud_Metadata",
+    "severity": "High",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "ajax.googleapis.com",
+    "ip_address": "",
+    "category": "CDN_Common",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "cdnjs.cloudflare.com",
+    "ip_address": "",
+    "category": "CDN_Common",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "cdn.jsdelivr.net",
+    "ip_address": "",
+    "category": "CDN_Common",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "cdn.cloudflare.net",
+    "ip_address": "",
+    "category": "CDN_Common",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "akamaihd.net",
+    "ip_address": "",
+    "category": "CDN_Common",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "fastly.jsdelivr.net",
+    "ip_address": "",
+    "category": "CDN_Common",
+    "severity": "Low",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "surv-gateway.example.com",
+    "ip_address": "",
+    "category": "Surveillance",
+    "severity": "High",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "collector.telemetry.example.net",
+    "ip_address": "",
+    "category": "Surveillance",
+    "severity": "High",
+    "source": "seed_rich_v1"
+  },
+  {
+    "domain": "command.node.example.org",
+    "ip_address": "",
+    "category": "Surveillance",
+    "severity": "High",
+    "source": "seed_rich_v1"
+  }
+]

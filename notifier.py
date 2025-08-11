@@ -1,30 +1,37 @@
-# notifier.py — minimal
+# notifier.py — robust win11toast use with safe on_click + fallback
 import platform, subprocess
 
 _IS_WIN = platform.system().lower().startswith("win")
 
-def _ensure_win11toast():
+def _notify_windows(title: str, message: str) -> bool:
+    # 1) win11toast with explicit keyword args + no-op click handler
     try:
-        from win11toast import toast  # noqa: F401
+        from win11toast import toast
+        # Avoid positional args; force keywords so 'on_click' doesn't get mis-bound.
+        toast(title=title, body=message, icon=None, duration="short",
+              on_click=(lambda *_: None))   # never None → always callable
         return True
-    except Exception:
+    except Exception as e:
+        # 2) Hard fallback: MessageBox (can’t be missed)
         try:
-            # Mirrors your script: call "pip" directly
-            subprocess.run(["pip", "install", "win11toast"],
-                           check=True, capture_output=True, text=True)
-            from win11toast import toast  # retry
+            import ctypes
+            MB_ICONINFORMATION = 0x40
+            ctypes.windll.user32.MessageBoxW(0, message, title, MB_ICONINFORMATION)
             return True
-        except Exception as e:
-            print("[NOTIFY] Failed to install/import win11toast:", e)
+        except Exception as e2:
+            print(f"[NOTIFY] Fallback failed: toast err={e} / msgbox err={e2}")
             return False
 
 def notify(title: str, message: str, duration: int = 5):
-    if _IS_WIN and _ensure_win11toast():
+    sent = False
+    if _IS_WIN:
+        sent = _notify_windows(title, message)
+    else:
+        # non-Windows minimal fallback (won't run in your setup, but harmless)
         try:
-            from win11toast import toast
-            toast(title, message, duration)  # simple & reliable
-            return
-        except Exception as e:
-            print(f"[NOTIFY] win11toast error: {e}")
-    # Fallback (non-Windows or failure)
-    print(f"[NOTIFY] {title}: {message}")
+            subprocess.run(["notify-send", title, message], check=False)
+            sent = True
+        except Exception:
+            pass
+    if not sent:
+        print(f"[NOTIFY] {title}: {message} (console fallback)")

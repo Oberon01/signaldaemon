@@ -113,10 +113,11 @@ def scan_once(
     baseline_seen: Optional[Set[Tuple[int, str, int, str, int]]] = None,
     dedupe_baseline: bool = False,
     do_notify: bool = False,
-    notify_min: str = "Low",
+    notify_min: str = "High",
     notify_squelch: float = 60.0,
     match_log: str | None = None,
-    log_baselines: bool = False
+    log_baselines: bool = False,
+    notify_cats: set | None = None
 ) -> Tuple[int, int]:
     """
     Returns (match_count, baseline_count).
@@ -152,7 +153,7 @@ def scan_once(
         if not matched:
             matched = bl.match_ip(dest_ip)
 
-        ts_now = dt.datetime.now().isoformat() + "Z"
+        ts_now = dt.datetime.now(dt.timezone.utc).isoformat().replace("+00:00", "Z")
         laddr_ip = getattr(c.laddr, "ip", "")
         laddr_port = getattr(c.laddr, "port", 0)
         raddr_ip = getattr(c.raddr, "ip", "")
@@ -161,16 +162,22 @@ def scan_once(
         if matched:
             m_domain, m_cat, m_sev = matched
 
-            # Notifications (rate-limited)
+            # Notifications (rate-limited + category filter)
             if do_notify:
-                if sev_order.get(m_sev, 1) >= sev_order.get(notify_min, 3):
+                # category filter: if provided, only notify when m_cat is allowed
+                cat_ok = True if (notify_cats is None) else (m_cat in notify_cats)
+                if cat_ok and sev_order.get(m_sev, 1) >= sev_order.get(notify_min, 3):
                     key = (pname, m_domain or dest_domain or dest_ip)
                     now_ts = time.time()
                     last = _notify_cache.get(key, 0)
                     if now_ts - last >= notify_squelch:
-                        title = f"SignalDaemon: {m_sev} {m_cat}"
-                        body = f"{pname or 'process'} → {m_domain or dest_domain or dest_ip}"
-                        notify(title, body)
+                        title = f"SignalDaemon: [{m_sev.upper()}] {m_cat}"
+                        body  = f"{pname or 'process'} → {m_domain or dest_domain or dest_ip}"
+                        try:
+                            notify(title, body)
+                        except Exception as e:
+                            if verbose:
+                                print(f"[NOTIFY][ERROR] {e} :: {title} | {body}")
                         _notify_cache[key] = now_ts
 
             row = {
@@ -258,7 +265,8 @@ def watch(
     notify_min: str,
     notify_squelch: float,
     match_log: str | None = None,
-    log_baselines: bool = False
+    log_baselines: bool = False,
+    notify_cats: set | None = None
 ):
     bl = Blocklist()
     bl.load_from_sqlite(blocklist_db)
@@ -270,7 +278,7 @@ def watch(
 
     print(f"[WATCH] SignalDaemon running. Interval={interval}s, Threshold={threshold}, "
           f"EstablishedOnly={only_established}, LogAll={log_all}, ExternalOnly={external_only}, "
-          f"DedupeBaseline={dedupe_baseline}, Duration={duration or '∞'}, Notify={do_notify}, NotifyMin={notify_min}")
+          f"DedupeBaseline={dedupe_baseline}, Duration={duration or '∞'}, Notify={do_notify}, NotifyMin={notify_min}, NotifyCats={notify_cats}")
 
     start_time = time.time()
     try:
@@ -281,7 +289,7 @@ def watch(
                 log_all=log_all, external_only=external_only,
                 baseline_seen=baseline_seen, dedupe_baseline=dedupe_baseline,
                 do_notify=do_notify, notify_min=notify_min, notify_squelch=notify_squelch,
-                match_log=match_log, log_baselines=log_baselines
+                match_log=match_log, log_baselines=log_baselines,notify_cats=notify_cats
             )
             if duration is not None and (time.time() - start_time) >= duration:
                 print("[WATCH] Duration reached. Exiting.")
@@ -319,8 +327,14 @@ def main():
     ap.add_argument("--match-log", default="matches.log", help="Plain-text log file for detections (set to '' to disable)")
     ap.add_argument("--log-baselines", action="store_true", help="Also write baseline (non-match) entries to the plain-text log")
 
+    ap.add_argument("--notify-categories", help="Comma-separated categories to notify on (e.g., OS_Telemetry,App_Telemetry). If omitted, all categories can notify.")
+
     args = ap.parse_args()
 
+    notify_cats = None
+    if args.notify_categories:
+        notify_cats = {c.strip() for c in args.notify_categories.split(",") if c.strip()}
+        
     verbose = not args.quiet
     only_established = not args.all_states
     log_all = args.log_all
@@ -333,7 +347,8 @@ def main():
             args.dedupe_baseline, args.duration,
             args.notify, args.notify_min_severity, args.notify_squelch,
             match_log=args.match_log if args.match_log else None,
-            log_baselines=args.log_baselines
+            log_baselines=args.log_baselines,
+            notify_cats=notify_cats
         )
     else:
         bl = Blocklist()
@@ -343,7 +358,10 @@ def main():
             bl, args.detections_db, args.threshold, verbose=verbose,
             only_established=only_established, debug=args.debug,
             log_all=log_all, external_only=external_only,
-            do_notify=args.notify, notify_min=args.notify_min_severity, notify_squelch=args.notify_squelch, match_log=(args.match_log if args.match_log else None), log_baselines=args.log_baselines
+            do_notify=args.notify, notify_min=args.notify_min_severity, 
+            notify_squelch=args.notify_squelch, 
+            match_log=(args.match_log if args.match_log else None), log_baselines=args.log_baselines,
+            notify_cats=notify_cats
         )
 
 if __name__ == "__main__":
