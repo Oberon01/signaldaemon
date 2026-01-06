@@ -1,0 +1,75 @@
+# =========================
+# SignalDaemon Configuration
+# =========================
+
+version: 1
+
+# ---- Core paths ----
+paths:
+  blocklist_sqlite: "signaldaemon_blocklist_expanded_2.sqlite"   # or leave empty to use JSON
+  blocklist_json:   ""                                           # if set, detector can rebuild sqlite from this
+  detections_db:    "detections.sqlite"
+  match_log:        "matches.log"
+  backups_dir:      "../.local_backups/signaldaemon"             # workspace-local, not uploaded
+
+# ---- Scan behavior ----
+scan:
+  interval_seconds: 5                  # --interval
+  only_established: true               # default true; false equals --all-states
+  include_internal: false              # false == external-only; true equals --include-internal
+  log_all_baselines: false             # --log-all
+  dedupe_baseline_session: true        # --dedupe-baseline
+  severity_threshold: "High"           # --threshold: Low|Medium|High
+
+# ---- Notifications ----
+notify:
+  enabled: true                        # --notify
+  min_severity: "Medium"               # --notify-min-severity
+  categories: ["OS_Telemetry","App_Telemetry","Surveillance"]  # --notify-categories
+  squelch_seconds: 180                 # --notify-squelch (rate-limit repeats)
+  # harden: true                       # optional future flag to auto-disable on repeated notifier errors
+
+# ---- Match log (human-readable) ----
+log:
+  enable_match_log: true               # disable by setting false or leaving paths.match_log empty
+  include_baselines: false             # --log-baselines
+  # Optional rotation (Phase 2.5)
+  rotate:
+    enabled: false
+    max_bytes: 10485760               # 10 MB
+    keep: 3
+
+# ---- Blocklist management (Phase 3) ----
+blocklist_update:
+  enabled: false
+  # url: "https://your-host/blocklists/signaldaemon_blocklist.json"
+  check_interval_hours: 24
+  merge_strategy: "prefer-remote"      # prefer-remote|prefer-local|union
+  write_json_backup: true              # keep a dated copy when updating
+
+# ---- Enrichment (optional / Phase 3+) ----
+enrich:
+  reverse_dns: true
+  geoip:
+    enabled: false
+    # db_path: "GeoLite2-ASN.mmdb"     # if you decide to add ASN/country lookups later
+
+# ---- Exporter presets (quality-of-life; maps to signaldaemon_export.py) ----
+export_presets:
+  last_24h_high:
+    since: "24h"
+    min_severity: "High"
+    match_type: "match"
+    out: "csv"
+    outfile: "high_24h.csv"
+  last_2h_unique_domain_proc:
+    since: "2h"
+    match_type: "match"
+    unique: "domain-proc"
+    out: "csv"
+    outfile: "unique_domain_proc_2h.csv"
+
+# ---- Service / Daemonization (Phase 3) ----
+service:
+  autostart: false                     # future: install as scheduled task / service
+  graceful_shutdown_seconds: 10

@@ -3,3 +3,4 @@ __pycache__/
 signaldaemon_blocklist/
 *.log
 detections.sqlite
+.local_backups/
